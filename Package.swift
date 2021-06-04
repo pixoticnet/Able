@@ -9,14 +9,16 @@ let package = Package(
             targets: ["Able"]),
     ],
     dependencies: [
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/glimpseio/BricBrac.git", .branch("main")),
     ],
     targets: [
         .target(
             name: "Able",
-            dependencies: []),
+            dependencies: ["BricBrac"],
+            resources: [.process("Resources")]),
         .testTarget(
             name: "AbleTests",
-            dependencies: ["Able"]),
+            dependencies: ["Able"],
+            resources: [.copy("TestResources")]),
     ]
 )
