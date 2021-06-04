@@ -14,8 +14,6 @@ jobs:
   Linux:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y libjavascriptcoregtk-4.0-dev
       - uses: actions/checkout@v2
       - run: swift test
 
@@ -53,16 +51,10 @@ jobs:
         run: swift test
 
   Windows10:
-    if: false # JavaScriptCore not available on Windows
     needs: [Linux] # Linux must pass first
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install JavaScriptCore.dll
-        run: |
-          Install-Binary -Url "https://secure-appldnld.apple.com/itunes12/001-97787-20210421-F0E5A3C2-A2C9-11EB-A40B-A128318AD179/iTunes64Setup.exe" -Name "iTunes64Setup.exe" -ArgumentList ("-q")
-
 
       - uses: seanmiddleditch/gha-setup-vsdevenv@master
 
