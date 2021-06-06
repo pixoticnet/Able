@@ -1,4 +1,4 @@
-import Foundation
+import func Foundation.NSLocalizedString
 
 /// A holder of a collection of elements that projects key paths through a `SelectionProjection`
 @dynamicMemberLookup
