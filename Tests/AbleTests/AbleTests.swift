@@ -1,5 +1,5 @@
 import XCTest
-@testable import Able
+import Able
 
 final class AbleTests: XCTestCase {
     func testExample() {
