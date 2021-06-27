@@ -25,7 +25,6 @@ jobs:
   watchOS:
     runs-on: macos-11
     needs: [Linux] # Linux must pass first
-
     env:
       DEVELOPER_DIR: /Applications/Xcode_12.5.app/Contents/Developer
 
@@ -43,6 +42,8 @@ jobs:
   iOS:
     runs-on: macos-latest
     needs: [Linux] # Linux must pass first
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.5.app/Contents/Developer
 
     steps:
       - uses: actions/checkout@v2
@@ -58,6 +59,8 @@ jobs:
   tvOS:
     runs-on: macos-latest
     needs: [iOS, watchOS] # iOS must pass first
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.5.app/Contents/Developer
 
     steps:
       - uses: actions/checkout@v2
